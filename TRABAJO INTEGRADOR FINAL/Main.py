@@ -8,6 +8,7 @@ El objetivo principal es afianzar el uso de estructuras de datos, modularizació
 y técnicas de filtrado/ordenamiento, aplicando los conceptos aprendidos en Programación 1.
 
 """
+
 from Funciones import BuscarPaises
 
 from Funciones import FiltrarPaises
@@ -17,16 +18,17 @@ from Funciones import OrdenarPaises
 from Funciones import MostrarEstadisticas
 
 
-#Creamos una funcion que valide las opciones del programa
-def ValidarOpcion (seguirprograma):
+# Creamos una funcion que valide las opciones del programa
+def ValidarOpcion(seguirprograma):
 
-    while seguirprograma not in ["S","N"]:
-            print("----OPCION INCORRECTA----")
-            seguirprograma = input("Ingrese una opcion: ").upper()
-    
+    while seguirprograma not in ["S", "N"]:
+        print("----OPCION INCORRECTA----")
+        seguirprograma = input("Ingrese una opcion: ").upper()
+
     return seguirprograma
 
-#Creamos el archivo CSV con los paises dichos en el TP
+
+# Creamos el archivo CSV con los paises dichos en el TP
 try:
     open("paises.csv", "x").write(
         "nombre,poblacion,superficie,continente\n"
@@ -38,13 +40,14 @@ try:
 except FileExistsError:
     pass
 
-#Creamos una funcion con la carga de los paises dentro de una lista de diccionarios
+# Creamos una funcion con la carga de los paises dentro de una lista de diccionarios
+
 
 def CargarPaises():
     paises = []
 
     with open("paises.csv", "r") as archivo:
-        archivo.readline() 
+        archivo.readline()
 
         for linea in archivo:
             datos = linea.strip().split(",")
@@ -53,7 +56,7 @@ def CargarPaises():
                 "nombre": datos[0],
                 "poblacion": int(datos[1]),
                 "superficie": int(datos[2]),
-                "continente": datos[3]
+                "continente": datos[3],
             }
 
             paises.append(pais)
@@ -61,7 +64,7 @@ def CargarPaises():
     return paises
 
 
-#Inicializamos las variables principales del programa
+# Inicializamos las variables principales del programa
 
 nombrepais = ""
 
@@ -75,7 +78,7 @@ seguirprograma = "S"
 
 opcion = ""
 
-opciones = ["A","B","C","D","E"]
+opciones = ["A", "B", "C", "D", "E"]
 
 print("=====================================================================")
 print("          BIENVENIDO AL PROGRAMA SOBRE LA GESTION DE PAISES")
@@ -83,26 +86,25 @@ print("=====================================================================")
 
 
 while seguirprograma == "S":
-    
+
     paises = CargarPaises()
-    
+
     print("Estas en el menu principal, a continuacion elija la opcion que desee: ")
     print("----------------------------------------------------------------------")
-    
+
     print("A) Si desea buscar algun pais dentro del programa ")
     print("B) Si desea filtrar los paises segun caracteristicas ")
     print("C) Si desea ordenar los paises ")
     print("D) Mostrar estadisticas ")
     print("E) Si desea salir del programa ")
-    
+
     opcion = input("Ingrese una opcion: ").upper()
 
-    #Corroboramos con un while que la opcion sea alguna de las mostradas por pantalla, si no es asi repite y muestra error hasta arreglarlo
+    # Corroboramos con un while que la opcion sea alguna de las mostradas por pantalla, si no es asi repite y muestra error hasta arreglarlo
 
     while opcion not in opciones:
         print("----OPCION INCORRECTA----")
         opcion = input("Ingrese una opcion correcta: ").upper()
-
 
     if opcion == "E":
         seguirprograma = "N"
@@ -110,10 +112,10 @@ while seguirprograma == "S":
     if opcion == "A":
         print("----------------------------------------------------------------------")
         print("Usted ha ingresado al apartado buscar paises ")
-        
+
         nombrepais = input("Ingrese el nombre del pais que quiere buscar: ")
 
-        BuscarPaises(nombrepais,paises)
+        BuscarPaises(nombrepais, paises)
 
         print("----------------------------------------------------------------------")
         print("¿Desea regresar al menu? (Escriba S para seguir o N para salir)")
@@ -151,9 +153,5 @@ while seguirprograma == "S":
         seguirprograma = ValidarOpcion(seguirprograma)
 
 
-        
-
-
 print("----------------------------------------------------------------------")
 print("Usted ha salido del programa, vuelva pronto. ")
-
