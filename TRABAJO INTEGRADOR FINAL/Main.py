@@ -46,9 +46,8 @@ except FileExistsError:
 def CargarPaises():
     paises = []
 
-    with open("paises.csv", "r") as archivo:
+    with open("paises.csv", "r",encoding="utf-8") as archivo:
         archivo.readline()
-
         for linea in archivo:
             datos = linea.strip().split(",")
 
@@ -112,6 +111,7 @@ while seguirprograma == "S":
     if opcion == "A":
         print("----------------------------------------------------------------------")
         print("Usted ha ingresado al apartado buscar paises ")
+        print("----------------------------------------------------------------------")
 
         nombrepais = input("Ingrese el nombre del pais que quiere buscar: ")
 
@@ -119,6 +119,7 @@ while seguirprograma == "S":
 
         print("----------------------------------------------------------------------")
         print("¿Desea regresar al menu? (Escriba S para seguir o N para salir)")
+        
 
         seguirprograma = input("Ingrese una opcion: ").upper()
         seguirprograma = ValidarOpcion(seguirprograma)
@@ -126,8 +127,9 @@ while seguirprograma == "S":
     if opcion == "B":
         print("----------------------------------------------------------------------")
         print("Usted ha ingresado al apartado de filtrar paises")
+        print("----------------------------------------------------------------------")
 
-        FiltrarPaises()
+        FiltrarPaises(paises)
         print("¿Desea regresar al menu? (Escriba S para seguir o N para salir)")
         seguirprograma = input("Ingrese una opcion: ").upper()
         seguirprograma = ValidarOpcion(seguirprograma)
@@ -136,7 +138,7 @@ while seguirprograma == "S":
         print("----------------------------------------------------------------------")
         print("Usted ha ingresado al apartado de ordenar paises")
 
-        OrdenarPaises()
+        OrdenarPaises(paises)
 
         print("¿Desea regresar al menu? (Escriba S para seguir o N para salir)")
         seguirprograma = input("Ingrese una opcion: ").upper()
@@ -145,6 +147,7 @@ while seguirprograma == "S":
     if opcion == "D":
         print("----------------------------------------------------------------------")
         print("A continuacion las estadisticas de los paises ")
+        print("----------------------------------------------------------------------")
 
         MostrarEstadisticas()
 
