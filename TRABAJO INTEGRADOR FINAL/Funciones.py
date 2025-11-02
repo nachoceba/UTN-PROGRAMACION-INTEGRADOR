@@ -3,7 +3,7 @@ def BuscarPaises(nombrepais, paises):
     encontrado = False
 
     for pais in paises:
-        if (pais["nombre"].lower() == nombrepais.lower()or nombrepais[:3].lower() == pais["nombre"][:3].lower()):
+        if pais["nombre"].lower() == nombrepais.lower():
 
             print(" País encontrado:")
             print(f"Nombre: {pais['nombre']}")
@@ -12,9 +12,21 @@ def BuscarPaises(nombrepais, paises):
             print(f"Continente: {pais['continente']}")
             encontrado = True
 
-    if encontrado == False:
-        print("El país no se encuentra en la lista.")
+    
+    if not encontrado and len(nombrepais) == 3 :
+        for pais in paises:
+            if nombrepais[:3].lower() == pais["nombre"][:3].lower():
+                print("País encontrado por siglas:")
+                print("--------------------------------")
+                print(f"Nombre: {pais['nombre']}")
+                print(f"Población: {pais['poblacion']}")
+                print(f"Superficie: {pais['superficie']}")
+                print(f"Continente: {pais['continente']}")
+                encontrado = True
 
+    if not encontrado:
+        print("No se encontró el país ingresado.")
+      
     return
 
 
@@ -223,3 +235,77 @@ def OrdenarPaises(paises):
 def MostrarEstadisticas():
 
     return
+
+
+def AñadirPais(paises):
+    opcion = "S"
+    continentes = ["ASIA","AFRICA","OCEANIA","AMERICA","EUROPA"]
+    while opcion == "S":
+
+        print("Ingrese el nombre del nuevo pais a ingresar: ")
+
+        nuevopais= input()
+
+        for pais in paises:
+            if nuevopais[:3].lower() == pais["nombre"][:3].lower() and pais["nombre"].lower() == nuevopais.lower():
+                print("----ERROR-----")
+                print("Ya hay un pais con esas siglas, porfavor ingrese el nombre del pais completo para corroborar que no este en la lista")
+                nuevopais = input()
+                
+                if pais["nombre"].lower() == nuevopais.lower():
+                    print("----ERROR-----")
+                    print("El pais ingresado ya existe en el sistema porfavor vuelva al menu e intente con otro pais. ")
+                    return
+
+        validar = False
+
+        while validar == False:
+            poblacion = input("Ingrese la cantidad de POBLACION (sin comas ni puntos, solo el número): ").strip()
+
+            if "," in poblacion or "." in poblacion:
+                print("Error: no use comas ni puntos, solo números enteros.")
+            elif not poblacion.isdigit():
+                print("Error: debe ingresar solo números enteros.")
+            else:
+                validar = True
+
+        poblacion = int(poblacion)
+        
+        validar = False
+        
+        while validar == False:
+            superficie = input("Ingrese la cantidad de SUPERFICIE (sin comas ni puntos, solo el número): ").strip()
+
+            if "," in poblacion or "." in poblacion:
+                print("Error: no use comas ni puntos, solo números enteros.")
+            elif not poblacion.isdigit():
+                print("Error: debe ingresar solo números enteros.")
+            else:
+                validar = True
+
+        superficie = int(superficie)
+
+        print("Ingrese el continente de su pais ")
+
+        continente = input().strip()
+        
+
+        while continente.upper() not in continentes:
+            print("----ERROR----")
+            print("El continente ingresado no existe pruebe otra vez ")
+            continente = input("->").upper().strip()
+        
+        
+            
+
+        with open("paises.csv", "a+", encoding="utf-8") as archivo:
+            archivo.seek(0)  # Ir al inicio del archivo
+            contenido = archivo.read()
+            # Si el archivo NO termina con un salto de línea, agregalo
+            if contenido and not contenido.endswith("\n"):
+                archivo.write("\n")
+
+            archivo.write(f"{nuevopais},{poblacion},{superficie}, {continente} \n")
+            print("Pais agregado correctamente.")
+
+        return
