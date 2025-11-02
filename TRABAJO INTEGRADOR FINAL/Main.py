@@ -8,6 +8,7 @@ El objetivo principal es afianzar el uso de estructuras de datos, modularizació
 y técnicas de filtrado/ordenamiento, aplicando los conceptos aprendidos en Programación 1.
 
 """
+
 from Funciones import AñadirPais
 
 from Funciones import BuscarPaises
@@ -47,7 +48,7 @@ except FileExistsError:
 def CargarPaises():
     paises = []
 
-    with open("paises.csv", "r",encoding="utf-8") as archivo:
+    with open("paises.csv", "r", encoding="utf-8") as archivo:
         archivo.readline()
         for linea in archivo:
             datos = linea.strip().split(",")
@@ -120,8 +121,9 @@ while seguirprograma == "S":
         BuscarPaises(nombrepais, paises)
 
         print("----------------------------------------------------------------------")
-        print("¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)")
-        
+        print(
+            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
+        )
 
         seguirprograma = input("Ingrese una opcion: ").upper()
         seguirprograma = ValidarOpcion(seguirprograma)
@@ -132,7 +134,9 @@ while seguirprograma == "S":
         print("----------------------------------------------------------------------")
 
         FiltrarPaises(paises)
-        print("¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)")
+        print(
+            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
+        )
         seguirprograma = input("Ingrese una opcion: ").upper()
         seguirprograma = ValidarOpcion(seguirprograma)
 
@@ -141,10 +145,11 @@ while seguirprograma == "S":
         print("Usted ha ingresado al apartado de ordenar paises")
         print("----------------------------------------------------------------------")
 
-
         OrdenarPaises(paises)
 
-        print("¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)")
+        print(
+            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
+        )
         seguirprograma = input("Ingrese una opcion: ").upper()
         seguirprograma = ValidarOpcion(seguirprograma)
 
@@ -153,26 +158,26 @@ while seguirprograma == "S":
         print("A continuacion las estadisticas de los paises ")
         print("----------------------------------------------------------------------")
 
-        MostrarEstadisticas()
+        MostrarEstadisticas(paises)
 
-        print("¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)")
+        print(
+            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
+        )
         seguirprograma = input("Ingrese una opcion: ").upper()
         seguirprograma = ValidarOpcion(seguirprograma)
-    
+
     if opcion == "E":
         print("----------------------------------------------------------------------")
         print("Usted ha ingresado al apartado añadir paises ")
         print("----------------------------------------------------------------------")
 
-       
-
         AñadirPais(paises)
 
-        print("¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)")
+        print(
+            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
+        )
         seguirprograma = input("Ingrese una opcion: ").upper()
         seguirprograma = ValidarOpcion(seguirprograma)
-
-
 
 
 print("----------------------------------------------------------------------")
