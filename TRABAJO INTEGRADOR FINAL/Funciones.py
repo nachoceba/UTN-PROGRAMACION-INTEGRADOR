@@ -256,12 +256,12 @@ def MostrarEstadisticas(paises):
         print("No hay países cargados para mostrar estadísticas.")
         return
 
-    # Inicializamos contadores y acumuladores
+    # Inicializamos las variables para los cálculos
     total_paises = 0
     total_poblacion = 0
     total_superficie = 0
 
-    # Variables para guardar los extremos
+    # Variables para almacenar los países con mayor y menor población y superficie
     pais_mayor_pob = ""
     pais_menor_pob = ""
     pais_mayor_sup = ""
@@ -273,36 +273,36 @@ def MostrarEstadisticas(paises):
         total_poblacion += pais["poblacion"]
         total_superficie += pais["superficie"]
 
-        # Si es el primer país, inicializamos los valores extremos
+        # Inicializamos las variables
         if pais_mayor_pob is "":
             pais_mayor_pob = pais
             pais_menor_pob = pais
             pais_mayor_sup = pais
             pais_menor_sup = pais
         else:
-            # Comparamos poblaciones
+            # Comparar poblaciones
             if pais["poblacion"] > pais_mayor_pob["poblacion"]:
                 pais_mayor_pob = pais
             if pais["poblacion"] < pais_menor_pob["poblacion"]:
                 pais_menor_pob = pais
 
-            # Comparamos superficies
+            # Comparar superficies
             if pais["superficie"] > pais_mayor_sup["superficie"]:
                 pais_mayor_sup = pais
             if pais["superficie"] < pais_menor_sup["superficie"]:
                 pais_menor_sup = pais
 
-    # Calculamos promedios
+    # Esto es para cacular los promedios
     promedio_poblacion = total_poblacion / total_paises
     promedio_superficie = total_superficie / total_paises
 
-    # Mostramos los resultados
+    # Aca te muestra los resultados
     print("------------------------------------------------------------")
     print(f"Cantidad total de países: {total_paises}")
     print(f"Población total: {total_poblacion:,}")
     print(f"Superficie total: {total_superficie:,}")
-    print(f"Promedio de población: {promedio_poblacion:,.2f}")
-    print(f"Promedio de superficie: {promedio_superficie:,.2f}")
+    print(f"Promedio de población: {promedio_poblacion:,}")
+    print(f"Promedio de superficie: {promedio_superficie:,}")
     print("------------------------------------------------------------")
     print(
         f"País con mayor población: {pais_mayor_pob['nombre']} ({pais_mayor_pob['poblacion']:,})"
