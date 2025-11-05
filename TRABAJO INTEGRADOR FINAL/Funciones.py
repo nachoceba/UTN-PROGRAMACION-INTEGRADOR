@@ -119,30 +119,22 @@ def FiltrarPaises(paises):
         print("Accediste a filtrar por superficie ")
 
         # Pedir mínimo
-        rangomenor = input(
-            "Por favor ingrese el mínimo de superficie de los países a buscar: "
-        )
+        rangomenor = input("Por favor ingrese el mínimo de superficie de los países a buscar: ")
 
         # Valido que solo si ingresen numeros y no otro caracter
         while not rangomenor.isdigit():
             print("ERROR, INGRESE UNA OPCIÓN VÁLIDA (solo números enteros)")
-            rangomenor = input(
-                "Por favor ingrese el mínimo de población de los países a buscar: "
-            )
+            rangomenor = input("Por favor ingrese el mínimo de población de los países a buscar: ")
 
         rangomenor = int(rangomenor)
 
         # Pedir máximo
-        rangomayor = input(
-            "Por favor ingrese el máximo de superficie de los países a buscar: "
-        )
+        rangomayor = input( "Por favor ingrese el máximo de superficie de los países a buscar: ")
 
         # Valido que solo si ingresen numeros y no otro caracter
         while not rangomayor.isdigit():
             print("ERROR, INGRESE UNA OPCIÓN VÁLIDA (solo números enteros)")
-            rangomayor = input(
-                "Por favor ingrese el máximo de población de los países a buscar: "
-            )
+            rangomayor = input( "Por favor ingrese el máximo de población de los países a buscar: ")
 
         rangomayor = int(rangomayor)
 
@@ -164,16 +156,12 @@ def FiltrarPaises(paises):
         print("Accediste a filtrar por continente ")
 
         # Pedir continente a filtrar
-        continente = input(
-            "Ingrese el continente por el cual queres que se filtren los paises (Ingrese el continente sin tildes): "
-        ).lower()
+        continente = input("Ingrese el continente por el cual queres que se filtren los paises (Ingrese el continente sin tildes): ").lower()
 
         # Validamos que ingrese un continente correcto
         while continente not in ["asia", "oceania", "america", "europa", "africa"]:
             print("ERROR, EL CONTINENTE INGRESADO NO COINCIDE CON NINGUNO ")
-            continente = input(
-                "Ingrese el continente por el cual queres que se filtren los paises(Ingrese el continente sin tildes): "
-            ).lower()
+            continente = input("Ingrese el continente por el cual queres que se filtren los paises(Ingrese el continente sin tildes): ").lower()
 
         for pais in paises:
             if pais["continente"].lower() == continente.lower():
@@ -276,9 +264,7 @@ def OrdenarPaises(paises):
     print("------------------------------------------------------------")
 
     for pais in paises:
-        print(
-            f"{pais['nombre']} | Población: {pais['poblacion']} | Superficie: {pais['superficie']} | Continente: {pais['continente']}"
-        )
+        print(f"{pais['nombre']} | Población: {pais['poblacion']} | Superficie: {pais['superficie']} | Continente: {pais['continente']}")
 
     print("------------------------------------------------------------")
 
