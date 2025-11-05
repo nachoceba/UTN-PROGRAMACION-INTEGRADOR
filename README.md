@@ -18,6 +18,7 @@ PARTICIPACIONES DE LOS INTEGRANTES:
 El codigo fue realizado de manera equitativa, el main nos ayudamos mutuamente para poder lograr una funcionalidad y eficacia.
 
 Santiago Copia: Se encargo de las funciones ordenar, mostrar estadisticas y aporto en cada parte del codigo proporcionando ideas y mejoras. 
+
 Ignace Ceballos: Se encargo de las funciones buscar, crear paises y filtrarlos. A su vez tambien estuvo al tanto de cada parte del codigo para poder darle ideas y ayudas.
 
 
