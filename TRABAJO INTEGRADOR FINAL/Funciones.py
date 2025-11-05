@@ -1,6 +1,11 @@
-def BuscarPaises(nombrepais, paises):
-
+def BuscarPaises(paises):
+    opcion = ""
     encontrado = False
+
+    nombrepais = input("Ingrese el nombre del pais que quiere buscar: ")
+
+    while len(nombrepais) < 3:
+        nombrepais = input("Ingrese por lo menos 3 caracteres del pais a buscar ")
 
     for pais in paises:
         if pais["nombre"].lower() == nombrepais.lower():
@@ -12,7 +17,7 @@ def BuscarPaises(nombrepais, paises):
             print(f"Continente: {pais['continente']}")
             encontrado = True
 
-    if not encontrado and len(nombrepais) == 3:
+    if encontrado == False and len(nombrepais) == 3:
         for pais in paises:
             if nombrepais[:3].lower() == pais["nombre"][:3].lower():
                 print("País encontrado por siglas:")
@@ -25,8 +30,23 @@ def BuscarPaises(nombrepais, paises):
 
     if not encontrado:
         print("No se encontró el país ingresado.")
+    
+    print("¿Desea seguir buscando paises? ")
+    print("Escriba S para buscar otro pais o N para volver al menu ")
+        
+    opcion = input().upper()
 
-    return
+    while opcion not in ["S","N"]:
+        print("ERROR, opcion invalida..")
+        print("Escriba S para buscar otro pais o N para volver al menu ")
+        
+        opcion = input().upper()
+    
+    if opcion == "S":
+        BuscarPaises(paises)
+    
+    if opcion == "N":
+        return
 
 
 def FiltrarPaises(paises):
@@ -171,6 +191,24 @@ def FiltrarPaises(paises):
     if opcion == "D":
         print("Saliendo del apartado filtros......")
         return
+   
+    print("¿Desea seguir filtrando paises? ")
+    print("Escriba S para filtrar de otra manera o N para volver al menu ")
+        
+    opcion = input().upper()
+
+    while opcion not in ["S","N"]:
+        print("ERROR, opcion invalida..")
+        print("Escriba S para seguir filtrando paises o N para volver al menu ")
+        
+        opcion = input().upper()
+    
+    if opcion == "S":
+        FiltrarPaises(paises)
+    
+    if opcion == "N":
+        return
+    
 
 
 def OrdenarPaises(paises):
@@ -247,6 +285,25 @@ def OrdenarPaises(paises):
     if opcion == "E":
         print("Saliendo del apartado ordenar paises.... ")
         return
+   
+    print("")
+    print("¿Desea seguir ordenando paises? ")
+    print("Escriba S para ordenar de otra manera o N para volver al menu ")
+        
+    opcion = input().upper()
+
+    while opcion not in ["S","N"]:
+        print("ERROR, opcion invalida..")
+        print("Escriba S para seguir ordenando paises o N para volver al menu ")
+        
+        opcion = input().upper()
+    
+    if opcion == "S":
+       OrdenarPaises(paises)
+    
+    if opcion == "N":
+        return
+    
 
 
 def MostrarEstadisticas(paises):
@@ -304,18 +361,15 @@ def MostrarEstadisticas(paises):
     print(f"Promedio de población: {promedio_poblacion:,}")
     print(f"Promedio de superficie: {promedio_superficie:,}")
     print("------------------------------------------------------------")
-    print(
-        f"País con mayor población: {pais_mayor_pob['nombre']} ({pais_mayor_pob['poblacion']:,})"
-    )
-    print(
-        f"País con menor población: {pais_menor_pob['nombre']} ({pais_menor_pob['poblacion']:,})"
-    )
-    print(
-        f"País con mayor superficie: {pais_mayor_sup['nombre']} ({pais_mayor_sup['superficie']:,})"
-    )
-    print(
-        f"País con menor superficie: {pais_menor_sup['nombre']} ({pais_menor_sup['superficie']:,})"
-    )
+    
+    print(f"País con mayor población: {pais_mayor_pob['nombre']} ({pais_mayor_pob['poblacion']:,})")
+    
+    print(f"País con menor población: {pais_menor_pob['nombre']} ({pais_menor_pob['poblacion']:,})")
+        
+    print(f"País con mayor superficie: {pais_mayor_sup['nombre']} ({pais_mayor_sup['superficie']:,})")
+        
+    print(f"País con menor superficie: {pais_menor_sup['nombre']} ({pais_menor_sup['superficie']:,})")
+       
     print("------------------------------------------------------------")
 
     return
@@ -331,29 +385,20 @@ def AñadirPais(paises):
         nuevopais = input()
 
         for pais in paises:
-            if (
-                nuevopais[:3].lower() == pais["nombre"][:3].lower()
-                and pais["nombre"].lower() == nuevopais.lower()
-            ):
+            if ( nuevopais[:3].lower() == pais["nombre"][:3].lower() and pais["nombre"].lower() == nuevopais.lower()):
                 print("----ERROR-----")
-                print(
-                    "Ya hay un pais con esas siglas, porfavor ingrese el nombre del pais completo para corroborar que no este en la lista"
-                )
+                print("Ya hay un pais con esas siglas, porfavor ingrese el nombre del pais completo para corroborar que no este en la lista")
                 nuevopais = input()
 
                 if pais["nombre"].lower() == nuevopais.lower():
                     print("----ERROR-----")
-                    print(
-                        "El pais ingresado ya existe en el sistema porfavor vuelva al menu e intente con otro pais. "
-                    )
+                    print( "El pais ingresado ya existe en el sistema porfavor vuelva al menu e intente con otro pais. ")
                     return
 
         validar = False
 
         while validar == False:
-            poblacion = input(
-                "Ingrese la cantidad de POBLACION (sin comas ni puntos, solo el número): "
-            ).strip()
+            poblacion = input("Ingrese la cantidad de POBLACION (sin comas ni puntos, solo el número): ").strip()
 
             if "," in poblacion or "." in poblacion:
                 print("Error: no use comas ni puntos, solo números enteros.")
@@ -367,13 +412,11 @@ def AñadirPais(paises):
         validar = False
 
         while validar == False:
-            superficie = input(
-                "Ingrese la cantidad de SUPERFICIE (sin comas ni puntos, solo el número): "
-            ).strip()
+            superficie = input("Ingrese la cantidad de SUPERFICIE (sin comas ni puntos, solo el número): " ).strip()
 
-            if "," in poblacion or "." in poblacion:
+            if "," in superficie or "." in superficie:
                 print("Error: no use comas ni puntos, solo números enteros.")
-            elif not poblacion.isdigit():
+            elif not superficie.isdigit():
                 print("Error: debe ingresar solo números enteros.")
             else:
                 validar = True
@@ -392,7 +435,7 @@ def AñadirPais(paises):
         with open("paises.csv", "a+", encoding="utf-8") as archivo:
             archivo.seek(0)  # Ir al inicio del archivo
             contenido = archivo.read()
-            # Si el archivo NO termina con un salto de línea, agregalo
+            # Si el archivo NO termina con un salto de línea lo agrega para que al añadir paises se pongan a continuacion y no tenga errores
             if contenido and not contenido.endswith("\n"):
                 archivo.write("\n")
 

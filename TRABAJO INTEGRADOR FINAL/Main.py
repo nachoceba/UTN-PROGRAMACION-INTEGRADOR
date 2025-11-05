@@ -44,7 +44,6 @@ except FileExistsError:
 
 # Creamos una funcion con la carga de los paises dentro de una lista de diccionarios
 
-
 def CargarPaises():
     paises = []
 
@@ -85,8 +84,7 @@ print("=====================================================================")
 print("          BIENVENIDO AL PROGRAMA SOBRE LA GESTION DE PAISES")
 print("=====================================================================")
 
-
-while seguirprograma == "S":
+def menu ():
 
     paises = CargarPaises()
 
@@ -109,36 +107,25 @@ while seguirprograma == "S":
         opcion = input("Ingrese una opcion correcta: ").upper()
 
     if opcion == "F":
-        seguirprograma = "N"
+        return
 
     if opcion == "A":
         print("----------------------------------------------------------------------")
         print("Usted ha ingresado al apartado buscar paises ")
         print("----------------------------------------------------------------------")
 
-        nombrepais = input("Ingrese el nombre del pais que quiere buscar: ")
-
-        BuscarPaises(nombrepais, paises)
-
-        print("----------------------------------------------------------------------")
-        print(
-            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
-        )
-
-        seguirprograma = input("Ingrese una opcion: ").upper()
-        seguirprograma = ValidarOpcion(seguirprograma)
-
+        BuscarPaises(paises)
+        #LLamamos a la funcion menu cada vez que termine de hacer una de las opciones para que el usuario pueda seguir el curso del programa
+        menu()
+    
     if opcion == "B":
         print("----------------------------------------------------------------------")
         print("Usted ha ingresado al apartado de filtrar paises")
         print("----------------------------------------------------------------------")
 
         FiltrarPaises(paises)
-        print(
-            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
-        )
-        seguirprograma = input("Ingrese una opcion: ").upper()
-        seguirprograma = ValidarOpcion(seguirprograma)
+    
+        menu()
 
     if opcion == "C":
         print("----------------------------------------------------------------------")
@@ -147,11 +134,7 @@ while seguirprograma == "S":
 
         OrdenarPaises(paises)
 
-        print(
-            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
-        )
-        seguirprograma = input("Ingrese una opcion: ").upper()
-        seguirprograma = ValidarOpcion(seguirprograma)
+        menu()
 
     if opcion == "D":
         print("----------------------------------------------------------------------")
@@ -160,11 +143,7 @@ while seguirprograma == "S":
 
         MostrarEstadisticas(paises)
 
-        print(
-            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
-        )
-        seguirprograma = input("Ingrese una opcion: ").upper()
-        seguirprograma = ValidarOpcion(seguirprograma)
+        menu()
 
     if opcion == "E":
         print("----------------------------------------------------------------------")
@@ -173,12 +152,9 @@ while seguirprograma == "S":
 
         AñadirPais(paises)
 
-        print(
-            "¿Desea regresar al menu? (Escriba S para seguir o N para salir del sistema)"
-        )
-        seguirprograma = input("Ingrese una opcion: ").upper()
-        seguirprograma = ValidarOpcion(seguirprograma)
+        menu()
 
 
+menu()
 print("----------------------------------------------------------------------")
 print("Usted ha salido del programa, vuelva pronto. ")
