@@ -27,23 +27,36 @@ El programa se maneja a través de un menú principal donde el usuario puede bus
 
 EJEMPLOS DE E/S:
 
-Lo que ingresa el usuario -> Ingrese una opción: E   Lo que devuelve el sistema - > "Pais agregado correctamente."
-                             Nombre: Chile
-                             Población: 19620000
-                             Superficie: 756102
-                             Continente: America
+EJEMPLO 1
+-------------------------------------------
+Lo que ingresa el usuario:
 
+Ingrese una opción: "E"
+Nombre: Chile
+Población: 19620000
+Superficie: 756102
+Continente: America
 
-Lo que ingresa el usuario -> Ingrese una opción: A
-                             Ingrese el nombre del país que quiere buscar: Brasil
+Lo que devuelve el sistema:
+ > "Pais agregado correctamente."
+-------------------------------------------
 
-Lo que devuelve el sistema -> ----------------------------------------------------------------------  
-                               País encontrado:
-                               Nombre: Brasil
-                               Población: 213993437
-                               Superficie: 8515767
-                               Continente: America
-                              ----------------------------------------------------------------------
+EJEMPLO 2
+-------------------------------------------
+Lo que ingresa el usuario:
+
+ Ingrese una opción: "A"
+ Ingrese el nombre del país que quiere buscar: Brasil
+
+Lo que devuelve el sistema -> 
+-------------------------------------------
+País encontrado:
+Nombre: Brasil
+Población: 213993437
+Superficie: 8515767
+Continente: America>
+-------------------------------------------
+-------------------------------------------
 
 
 
