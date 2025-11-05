@@ -48,13 +48,13 @@ Lo que ingresa el usuario:
  Ingrese una opción: "A"
  Ingrese el nombre del país que quiere buscar: Brasil
 
-Lo que devuelve el sistema -> 
+Lo que devuelve el sistema
 -------------------------------------------
 País encontrado:
 Nombre: Brasil
 Población: 213993437
 Superficie: 8515767
-Continente: America>
+Continente: America
 -------------------------------------------
 -------------------------------------------
 
