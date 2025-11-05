@@ -1,6 +1,7 @@
+----------------------------------
 TRABAJO INTEGRADOR PROGRAMACION
-      "PAISES"
-
+            "PAISES"
+----------------------------------
 Integrantes: Ignacio Ceballos y Santiago Copia
 
 DESCRIPCION DEL PROGRAMA:
@@ -10,6 +11,15 @@ Desarrollamos una aplicación en Python para gestionar información de distintos
 A partir de esa información, implementamos un menú interactivo que le permite al usuario realizar varias acciones: buscar un país, filtrar resultados según características, ordenar la lista por diferentes criterios, mostrar estadísticas generales y agregar nuevos países al archivo. Cada opción del menú activa una función independiente, lo que nos permitió modularizar el código y mantener una estructura clara.
 
 Además, agregamos validaciones para asegurarnos de que el usuario ingrese opciones correctas y evitar errores durante la ejecución.
+
+
+PARTICIPACIONES DE LOS INTEGRANTES:
+
+El codigo fue realizado de manera equitativa, el main nos ayudamos mutuamente para poder lograr una funcionalidad y eficacia.
+
+Santiago Copia: Se encargo de las funciones ordenar, mostrar estadisticas y aporto en cada parte del codigo proporcionando ideas y mejoras. 
+Ignace Ceballos: Se encargo de las funciones buscar, crear paises y filtrarlos. A su vez tambien estuvo al tanto de cada parte del codigo para poder darle ideas y ayudas.
+
 
 INSTRUCCIONES GENERALES:
 
@@ -24,6 +34,7 @@ El programa se maneja a través de un menú principal donde el usuario puede bus
 4) Una vez terminada la tarea elegida indicar al sistema si desea seguir en la misma o volver al menu.
 
 5) Seleccionar F para salir del sistema.
+
 
 EJEMPLOS DE E/S:
 

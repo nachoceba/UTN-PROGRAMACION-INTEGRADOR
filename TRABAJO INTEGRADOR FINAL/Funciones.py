@@ -8,6 +8,7 @@ def BuscarPaises(paises):
         nombrepais = input("Ingrese por lo menos 3 caracteres del pais a buscar ")
 
     for pais in paises:
+        #Comprobamos que el pais ingresado este dentro de nuestro diccionario con un IF y si entra imprime el pais/es encontrados.
         if pais["nombre"].lower() == nombrepais.lower():
 
             print(" País encontrado:")
@@ -17,6 +18,8 @@ def BuscarPaises(paises):
             print(f"Continente: {pais['continente']}")
             encontrado = True
 
+    #Comprobamos nuevamente pero ahora tomando las primeras 3 letras del pais ingresado y los de nuestro diccionario
+    #Logrando asi una mayor amplitud a la busqueda
     if encontrado == False and len(nombrepais) == 3:
         for pais in paises:
             if nombrepais[:3].lower() == pais["nombre"][:3].lower():
@@ -100,7 +103,8 @@ def FiltrarPaises(paises):
             )
 
         rangomayor = int(rangomayor)
-
+        
+        #Comprobamos con un for que el pais este dentro de los rangos establecidos
         for pais in paises:
             if pais["poblacion"] >= rangomenor and pais["poblacion"] <= rangomayor:
                 print("-------------------")
@@ -137,7 +141,8 @@ def FiltrarPaises(paises):
             rangomayor = input( "Por favor ingrese el máximo de población de los países a buscar: ")
 
         rangomayor = int(rangomayor)
-
+        
+        #Comprobamos lo mismo, que este dentro de los rangos establecidos
         for pais in paises:
             if pais["superficie"] >= rangomenor and pais["superficie"] <= rangomayor:
                 print("-------------------")
@@ -367,11 +372,11 @@ def AñadirPais(paises):
     while opcion == "S":
 
         print("Ingrese el nombre del nuevo pais a ingresar: ")
-
         nuevopais = input()
 
+        #Corroboramos de todas las maneras que el pais a añadir no este ya en nuestra lista de paises
         for pais in paises:
-            if ( nuevopais[:3].lower() == pais["nombre"][:3].lower() and pais["nombre"].lower() == nuevopais.lower()):
+            if ( nuevopais[:3].lower() == pais["nombre"][:3].lower() or pais["nombre"].lower() == nuevopais.lower()):
                 print("----ERROR-----")
                 print("Ya hay un pais con esas siglas, porfavor ingrese el nombre del pais completo para corroborar que no este en la lista")
                 nuevopais = input()
@@ -379,6 +384,7 @@ def AñadirPais(paises):
                 if pais["nombre"].lower() == nuevopais.lower():
                     print("----ERROR-----")
                     print( "El pais ingresado ya existe en el sistema porfavor vuelva al menu e intente con otro pais. ")
+                    print("Redirigiendo al menu......")
                     return
 
         validar = False

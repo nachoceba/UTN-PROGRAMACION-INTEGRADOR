@@ -86,6 +86,7 @@ print("=====================================================================")
 
 def menu ():
 
+    #llamamos a la funcion cargar paises para guardarlo todo dentro de la variable paises.
     paises = CargarPaises()
 
     print("Estas en el menu principal, a continuacion elija la opcion que desee: ")
