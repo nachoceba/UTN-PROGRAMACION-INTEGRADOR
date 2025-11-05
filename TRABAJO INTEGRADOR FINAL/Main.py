@@ -20,15 +20,6 @@ from Funciones import OrdenarPaises
 from Funciones import MostrarEstadisticas
 
 
-# Creamos una funcion que valide las opciones del programa
-def ValidarOpcion(seguirprograma):
-
-    while seguirprograma not in ["S", "N"]:
-        print("----OPCION INCORRECTA----")
-        seguirprograma = input("Ingrese una opcion: ").upper()
-
-    return seguirprograma
-
 
 # Creamos el archivo CSV con los paises dichos en el TP
 try:
@@ -66,16 +57,6 @@ def CargarPaises():
 
 # Inicializamos las variables principales del programa
 
-nombrepais = ""
-
-poblacion = 0
-
-superficie = 0
-
-continente = ""
-
-seguirprograma = "S"
-
 opcion = ""
 
 opciones = ["A", "B", "C", "D", "E", "F"]
@@ -86,7 +67,7 @@ print("=====================================================================")
 
 def menu ():
 
-    #llamamos a la funcion cargar paises para guardarlo todo dentro de la variable paises.
+    #llamamos a la funcion cargar paises para guardarlo todo dentro de la variable paises.9
     paises = CargarPaises()
 
     print("Estas en el menu principal, a continuacion elija la opcion que desee: ")
