@@ -431,7 +431,7 @@ def AñadirPais(paises):
             if contenido and not contenido.endswith("\n"):
                 archivo.write("\n")
 
-            archivo.write(f"{nuevopais},{poblacion},{superficie}, {continente} \n")
+            archivo.write(f"{nuevopais},{poblacion},{superficie},{continente} \n")
             print("Pais agregado correctamente.")
 
         return
